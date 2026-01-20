@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asisten Kucing</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #87CEEB, #98FB98);
+            overflow: hidden;
+            cursor: none; /* Hide default cursor */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cat-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        .cat {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.1s ease-out;
+        }
+        .tail {
+            animation: wag 1s ease-in-out infinite;
+        }
+        @keyframes wag {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+        .eye {
+            animation: blink 3s ease-in-out infinite;
+        }
+        @keyframes blink {
+            0%, 90%, 100% { opacity: 1; }
+            95% { opacity: 0; }
+        }
+        .cursor-follow {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #FFD700, #FFA500);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 0.1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="cat-container">
+        <svg class="cat" viewBox="0 0 200 200">
+            <!-- Body -->
+            <ellipse cx="100" cy="140" rx="40" ry="30" fill="#FFCC99"/>
+            <!-- Head -->
+            <circle cx="100" cy="80" r="35" fill="#FFCC99"/>
+            <!-- Ears -->
+            <polygon points="75,55 80,40 85,55" fill="#FFCC99"/>
+            <polygon points="115,55 120,40 125,55" fill="#FFCC99"/>
+            <!-- Eyes -->
+            <circle cx="88" cy="70" r="5" fill="#000" class="eye"/>
+            <circle cx="112" cy="70" r="5" fill="#000" class="eye"/>
+            <!-- Nose -->
+            <polygon points="100,80 97,85 103,85" fill="#FF9999"/>
+            <!-- Mouth -->
+            <path d="M 92 90 Q 100 95 108 90" stroke="#000" stroke-width="2" fill="none"/>
+            <!-- Whiskers -->
+            <line x1="60" y1="75" x2="75" y2="78" stroke="#000" stroke-width="1"/>
+            <line x1="60" y1="82" x2="75" y2="82" stroke="#000" stroke-width="1"/>
+            <line x1="125" y1="78" x2="140" y2="75" stroke="#000" stroke-width="1"/>
+            <line x1="125" y1="82" x2="140" y2="82" stroke="#000" stroke-width="1"/>
+            <!-- Tail -->
+            <path d="M 140 140 Q 160 120 170 140 Q 165 150 160 145" fill="#FFCC99" class="tail"/>
+        </svg>
+    </div>
+    <div class="cursor-follow" id="cursor"></div>
+
+    <script>
+        const cat = document.querySelector('.cat');
+        const cursor = document.getElementById('cursor');
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            // Update cursor follower
+            cursor.style.left = mouseX - 10 + 'px';
+            cursor.style.top = mouseY - 10 + 'px';
+
+            // Calculate angle for cat to face cursor
+            const catRect = cat.getBoundingClientRect();
+            const catCenterX = catRect.left + catRect.width / 2;
+            const catCenterY = catRect.top + catRect.height / 2;
+
+            const angle = Math.atan2(mouseY - catCenterY, mouseX - catCenterX) * (180 / Math.PI);
+            cat.style.transform = `rotate(${angle}deg)`;
+        });
+    </script>
+</body>
+</html>

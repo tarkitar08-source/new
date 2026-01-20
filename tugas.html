@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Tugas Real-Time</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; display: flex; justify-content: center; padding: 20px; }
+        .card { background: white; width: 100%; max-width: 500px; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #1a73e8; }
+        .admin-section { background: #e8f0fe; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px dashed #1a73e8; }
+        input { width: 75%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; }
+        button { padding: 10px 15px; background: #1a73e8; color: white; border: none; border-radius: 6px; cursor: pointer; }
+        button.delete { background: #d93025; padding: 5px 10px; font-size: 12px; }
+        ul { list-style: none; padding: 0; }
+        li { background: #fff; border-bottom: 1px solid #eee; padding: 12px; display: flex; justify-content: space-between; align-items: center; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Daftar Tugas Kelas</h2>
+
+    <div class="admin-section" id="adminArea">
+        <p><strong>Panel Admin</strong></p>
+        <input type="text" id="inputTugas" placeholder="Tulis tugas baru...">
+        <button onclick="kirimTugas()">Kirim</button>
+    </div>
+
+    <ul id="listTugas">
+        <p>Memuat tugas...</p>
+    </ul>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+  // GANTI DENGAN CONFIG MILIK ANDA DARI FIREBASE CONSOLE
+  const firebaseConfig = {
+    apiKey: "AIzaSy...",
+    authDomain: "proyek-anda.firebaseapp.com",
+    databaseURL: "https://proyek-anda.firebaseio.com",
+    projectId: "proyek-anda",
+    storageBucket: "proyek-anda.appspot.com",
+    messagingSenderId: "123456",
+    appId: "1:123456:web:abcdef"
+  };
+
+  // Inisialisasi
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const tugasRef = ref(db, 'tugas');
+
+  // FUNGSI 1: Kirim data ke Firebase (Admin)
+  window.kirimTugas = function() {
+    const teks = document.getElementById('inputTugas').value;
+    if(teks) {
+        push(tugasRef, { isi: teks });
+        document.getElementById('inputTugas').value = "";
+    }
+  }
+
+  // FUNGSI 2: Baca data secara Real-time (Semua Orang)
+  onValue(tugasRef, (snapshot) => {
+    const listElement = document.getElementById('listTugas');
+    listElement.innerHTML = ""; // Bersihkan tampilan sebelum update
+    
+    snapshot.forEach((childSnapshot) => {
+        const idTugas = childSnapshot.key;
+        const data = childSnapshot.val();
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span>${data.isi}</span>
+            <button class="delete" onclick="hapusTugas('${idTugas}')">Hapus</button>
+        `;
+        listElement.appendChild(li);
+    });
+  });
+
+  // FUNGSI 3: Hapus data (Admin)
+  window.hapusTugas = function(id) {
+    const hapusRef = ref(db, 'tugas/' + id);
+    remove(hapusRef);
+  }
+</script>
+
+</body>
+</html>

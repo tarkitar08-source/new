@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arven-C</title>
+    <style>
+        body {
+            background: rgb(205, 152, 88); /* Police stripes background */
+            color: rgb(241, 230, 230); /* Text color */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center; /* Center all text */
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            text-align: center;
+            animation: bounceIn 1.5s ease-out;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        p {
+            font-size: 18px;
+            animation: slideInLeft 1s ease-out 0.5s both;
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        button {
+            background-color: #cf4f4f;
+            color: #ffffff;
+            border: none;
+            padding: 10px 80px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 10px; /* Rounded corners */
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(207, 79, 79, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(207, 79, 79, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(207, 79, 79, 0); }
+        }
+        button:hover {
+            background-color: #a43535;
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        button:active {
+            transform: scale(0.95) rotate(-2deg);
+        }
+        .container {
+            background-color: #9f2020; /* Dark red background */
+            padding: 10px;
+            border-radius: 50px;
+            animation: slideInUp 1s ease-out;
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .container2 {
+            background: #9f2020; /* Police stripes */
+            padding: 60px;
+            border-radius: 50px;
+            margin-top: 20px;
+            animation: zoomIn 1.2s ease-out 0.3s both;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .container3 {
+            background: #9f2020; /* Similar background */
+            padding: 60px;
+            border-radius: 50px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            animation: fadeInUp 1.5s ease-out 0.6s both;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container4 {
+            background: #9f2020; /* Similar background */
+            padding: 60px;
+            border-radius: 50px;
+            margin-top: 20px;
+            text-align: center;
+            animation: slideInRight 1.5s ease-out 0.9s both;
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        img {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .miring {
+            transform: rotate(8deg);
+            animation: wiggle 2s infinite;
+        }
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(8deg); }
+            25% { transform: rotate(12deg); }
+            75% { transform: rotate(4deg); }
+        }
+        .cat-assistant {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .cat {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        .tail {
+            animation: wag 1s ease-in-out infinite;
+        }
+        @keyframes wag {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+        .eye {
+            animation: blink 3s ease-in-out infinite;
+        }
+        @keyframes blink {
+            0%, 90%, 100% { opacity: 1; }
+            95% { opacity: 0; }
+        }
+    </style>
+    
+</head><body>
+    <div class="container">
+        <h1>Selamat Datang di Website Arvence</h1>
+        <h2>welcome to the Arvence website</h2>
+    </div>
+    
+    <div class="container4">
+        <h1>TOMBOL INFO</h1>
+        <p>Bersama Asisten Cat</p>
+        <button onclick="window.location.href = 'dua.html';">STRUKTUR KELAS</button>
+        <button onclick="window.location.href = 'tiga.html';">JADWAL </button>
+        
+    </div>
+    </div>
+    
+    <div class="container2">
+        <h1>VII-C</h1>
+        <p>VII-C memiliki 28 siswa yang berprestasi dengan (13 laki-laki & 15 perempuan)</p>
+        
+        <style>
+            
+        .miring { transform: rotate(8deg); }
+</style>
+
+<img src="images/gambar1.jpeg" alt="Gambar" width="325" height="200"
+style="border: 9px solid rgb(60, 59, 59);" class="miring">
+    </div>
+    
+    
+    <div class="cat-assistant">
+        <svg class="cat" viewBox="0 0 200 200">
+            <!-- Body -->
+            <ellipse cx="100" cy="140" rx="40" ry="30" fill="#FFCC99"/>
+            <!-- Head -->
+            <circle cx="100" cy="80" r="35" fill="#FFCC99"/>
+            <!-- Ears -->
+            <polygon points="75,55 80,40 85,55" fill="#FFCC99"/>
+            <polygon points="115,55 120,40 125,55" fill="#FFCC99"/>
+            <!-- Eyes -->
+            <circle cx="88" cy="70" r="5" fill="#000" class="eye"/>
+            <circle cx="112" cy="70" r="5" fill="#000" class="eye"/>
+            <!-- Nose -->
+            <polygon points="100,80 97,85 103,85" fill="#FF9999"/>
+            <!-- Mouth -->
+            <path d="M 92 90 Q 100 95 108 90" stroke="#000" stroke-width="2" fill="none"/>
+            <!-- Whiskers -->
+            <line x1="60" y1="75" x2="75" y2="78" stroke="#000" stroke-width="1"/>
+            <line x1="60" y1="82" x2="75" y2="82" stroke="#000" stroke-width="1"/>
+            <line x1="125" y1="78" x2="140" y2="75" stroke="#000" stroke-width="1"/>
+            <line x1="125" y1="82" x2="140" y2="82" stroke="#000" stroke-width="1"/>
+            <!-- Tail -->
+            <path d="M 140 140 Q 160 120 170 140 Q 165 150 160 145" fill="#FFCC99" class="tail"/>
+        </svg>
+    </div>
+    <div class="container3">
+        <div>
+            <h2>Logo Lama</h2>
+            <img src="images/gambar2.jpeg" alt="Guru 1" width="150" height="200"
+            style="border: 6px solid rgb(60, 59, 59);">
+            <p>21 Juli 20.19</p>
+        </div>
+        <div>
+            <h2>Logo Baru</h2>
+            <img src="images/gambar3.jpeg" alt="Wali Kelas" width="150" height="200"
+            style="border: 6px solid rgb(60, 59, 59);">
+            <p>21 Juli 20.20 - Sekarang</p>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            if (!localStorage.getItem('loggedIn')) {
+                window.location.href = 'login.html';
+            }
+            // Add interactivity to images
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    this.style.transform = this.style.transform.includes('scale(1.2)') ? 'scale(1) rotate(5deg)' : 'scale(1.2) rotate(10deg)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1) rotate(0deg)';
+                    }, 500);
+                });
+            });
+            // Add click effect to buttons
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.innerHTML = 'Loading...';
+                    setTimeout(() => {
+                        this.innerHTML = this.textContent;
+                    }, 1000);
+                });
+            });
+
+            // Cat animation towards buttons
+            const cat = document.querySelector('.cat');
+            const strukturBtn = document.querySelector('button[onclick*="dua.html"]');
+            const jadwalBtn = document.querySelector('button[onclick*="tiga.html"]');
+
+            function faceButton(button) {
+                const catRect = cat.getBoundingClientRect();
+                const catCenterX = catRect.left + catRect.width / 2;
+                const catCenterY = catRect.top + catRect.height / 2;
+
+                const btnRect = button.getBoundingClientRect();
+                const btnCenterX = btnRect.left + btnRect.width / 2;
+                const btnCenterY = btnRect.top + btnRect.height / 2;
+
+                const angle = Math.atan2(btnCenterY - catCenterY, btnCenterX - catCenterX) * (180 / Math.PI);
+                cat.style.transform = `rotate(${angle}deg)`;
+            }
+
+            strukturBtn.addEventListener('mouseenter', () => faceButton(strukturBtn));
+            jadwalBtn.addEventListener('mouseenter', () => faceButton(jadwalBtn));
+
+            // Reset to default when not hovering
+            document.addEventListener('mousemove', (e) => {
+                const strukturRect = strukturBtn.getBoundingClientRect();
+                const jadwalRect = jadwalBtn.getBoundingClientRect();
+                const isHoveringStruktur = e.clientX >= strukturRect.left && e.clientX <= strukturRect.right && e.clientY >= strukturRect.top && e.clientY <= strukturRect.bottom;
+                const isHoveringJadwal = e.clientX >= jadwalRect.left && e.clientX <= jadwalRect.right && e.clientY >= jadwalRect.top && e.clientY <= jadwalRect.bottom;
+
+                if (!isHoveringStruktur && !isHoveringJadwal) {
+                    cat.style.transform = 'rotate(0deg)';
+                }
+            });
+        };
+    </script>
+</body>
+</html>

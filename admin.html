@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+         .container1 {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .container2 {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+        }
+    </style>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <p>Selamat datang di dashboard admin. Hanya pengguna dengan peran admin yang dapat mengakses halaman ini.</p>
+        <!-- Konten admin lainnya dapat ditambahkan di sini -->
+    </div>
+    <div class="container1">
+        <h1>Data Pengguna Terdaftar</h1>
+        <ul>
+            <li>Admin: admin08 password: qazwsx123</li>
+            <li>Publik: muhyi password: 250057</li>
+            <li>Publik: abiya password: 250058</li>
+            <li>Publik: dzamar password: 250059</li>
+            <li>Publik: balqis password: 250060</li>
+            <li>Publik: amira password: 250061</li>
+            <li>Publik: naura password: 250062</li>
+            <li>Publik: abhi password: 250063</li>
+            <li>Publik: cinta password: 250064</li>
+            <li>Publik: cahya password: 250065</li>
+            <li>Publik: azka password: 250066</li>
+            <li>Publik: fadhil password: 250067</li>
+            <li>Publik: farah password: 250068</li>
+            <li>Publik: gede password: 250069</li>
+            <li>Publik: farel password: 250070</li>
+        </ul>
+    </div>
+    <div class="container2">
+        <h1>Informasi Penting</h1>
+        <p>Pastikan untuk menjaga kerahasiaan informasi login Anda. Hanya pengguna dengan peran admin yang memiliki akses ke halaman ini.</p>
+</body>
+</html>
+<script>
+if (localStorage.getItem('role') !== 'admin') {
+    alert('Akses ditolak! Anda bukan admin.');
+    window.location.href = 'index.html'; // Kembali ke halaman login
+}
+</script>
